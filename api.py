@@ -1,6 +1,5 @@
 from flask import Flask, request
 import requests
-from waitress import serve  # Import the waitress server
 
 app = Flask(__name__)
 
@@ -21,6 +20,6 @@ def ban_player():
     )
     return response.json(), response.status_code
 
-# Use Waitress to serve the app instead of Flask's development server
+# Run the Flask app locally
 if __name__ == "__main__":
-    serve(app, host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000)
